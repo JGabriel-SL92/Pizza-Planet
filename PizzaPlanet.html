@@ -8,10 +8,35 @@
 </head>
 <body>
     <h1> Bem Vindo ao nosso menu</h1>
-
+    
     <div id="produtos"></div>
 
+    <button id="btn-carrinho">🛒 Carrinho</button>
 
+<div id="carrinho-lateral">
+    <h2>Seu Carrinho</h2>
+    <button id="fechar-carrinho">✖</button>
+
+    <ul id="lista-carrinho"></ul>
+    <div style="margin-top:12px;">
+        <button id="finalizar-pedido">Finalizar Pedido</button>
+    </div>
+</div>
+
+
+<div id="overlay"></div>
+
+<div id="checkout">
+    <h2>Finalizar Pedido</h2>
+    <button id="fechar-checkout">✖</button>
+    <ul id="lista-checkout"></ul>
+    <div id="total-checkout"><strong>Total: R$ 0.00</strong></div>
+    <div style="margin-top:12px; text-align:right;">
+        <button id="confirmar-pedido">Confirmar Pedido</button>
+    </div>
+</div>
+
+    
     <script src="planet.js"></script>
     
 </body>

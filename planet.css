@@ -12,6 +12,8 @@ h1 {
     margin-bottom: 20px;
 }
 
+
+
 .produto h2 {
     margin: 0 0 8px 0;
     font-size: 18px;
@@ -29,3 +31,158 @@ h1 {
     width: 100%;
     border-radius : 4px;
 }  
+
+#carrinho {
+    margin-top: 30px;
+    background: #fff;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
+    width: 350px;
+}
+
+#lista-carrinho {
+    list-style: none;
+    padding: 0;
+}
+
+#lista-carrinho li {
+    background: #fafafa;
+    margin-bottom: 10px;
+    padding: 12px;
+    border-radius: 8px;
+}
+
+#lista-carrinho strong {
+    font-size: 17px;
+}
+
+#lista-carrinho span {
+    font-weight: bold;
+    color: #444;
+}
+
+#lista-carrinho button {
+    background: #0d6efd;
+    border: none;
+    border-radius: 5px;
+    color: white;
+    padding: 4px 9px;
+    font-size: 14px;
+    cursor: pointer;
+    margin: 0 5px;
+}
+
+#lista-carrinho button:hover {
+    background: #0954c6;
+}
+
+
+#total-geral {
+    margin-top: 10px;
+    font-size: 20px;
+    font-weight: bold;
+    color: #222;
+    padding: 10px;
+    background: #e8f0ff;
+    border-radius: 8px;
+    border-left: 5px solid #0d6efd;
+}
+
+#status-localstorage {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #3c7d0d;
+    background: #e7ffd8;
+    padding: 8px;
+    border-radius: 5px;
+    border-left: 5px solid #66bb22;
+}
+
+
+#btn-carrinho {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #0d6efd;
+    color: #fff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 18px;
+    z-index: 1000;
+}
+
+#btn-carrinho:hover {
+    background: #0954c6;
+}
+
+
+#carrinho-lateral {
+    position: fixed;
+    top: 0;
+    right: -350px;
+    width: 350px;
+    height: 100%;
+    background: #fff;
+    box-shadow: -3px 0px 12px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    transition: right 0.3s ease;
+    z-index: 999;
+    overflow-y: auto;
+}
+
+#carrinho-lateral.aberto {
+    right: 0; 
+}
+
+
+#fechar-carrinho {
+    background: transparent;
+    border: none;
+    font-size: 20px;
+    float: right;
+    cursor: pointer;
+}
+
+
+#overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    display: none;
+    z-index: 998;
+}
+
+#overlay.ativo {
+    display: block;
+}
+
+/* Estilos para a janela de checkout */
+#checkout {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 420px;
+    background: #fff;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+    z-index: 1001;
+    display: none;
+}
+
+#checkout.aberto { display: block; }
+
+#lista-checkout { list-style: none; padding: 0; margin: 0 0 8px 0; }
+#lista-checkout li { padding: 8px; border-bottom: 1px solid #eee; }
+#total-checkout { margin-top: 12px; font-size: 18px; text-align: right; }
+
+#checkout button { background: #0d6efd; color: #fff; border: none; padding: 8px 12px; border-radius: 6px; cursor: pointer; }
+#checkout button#fechar-checkout { background: transparent; color: #333; float: right; font-size: 18px; }
