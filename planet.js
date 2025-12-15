@@ -24,8 +24,19 @@ const btnCarrinho = document.createElement("button");
 btnCarrinho.textContent = "Adicionar ao Carrinho";
 
 btnCarrinho.onclick = function(){
-   
     adicionarAoCarrinho(nome.trim(), preco);
+
+    // Feedback visual
+    const originalText = btnCarrinho.textContent;
+    btnCarrinho.textContent = "✓ Adicionado!";
+    btnCarrinho.style.background = "linear-gradient(135deg, #4caf50, #66bb6a)";
+    btnCarrinho.disabled = true;
+
+    setTimeout(() => {
+        btnCarrinho.textContent = originalText;
+        btnCarrinho.style.background = "";
+        btnCarrinho.disabled = false;
+    }, 1500);
 };
 
 produto.appendChild(img);
@@ -84,15 +95,17 @@ function atualizarCarrinhoNaTela() {
     lista.innerHTML = "";
 
     let total = 0;
+    let totalItens = 0;
     carrinho.forEach((item, index) => {
         const subtotal = (item.preco * item.quantidade).toFixed(2);
         total += item.preco * item.quantidade;
+        totalItens += item.quantidade;
 
         const li = document.createElement("li");
         li.innerHTML = `
             <strong>${item.nome}</strong><br>
             Preço: R$ ${item.preco}<br>
-            Quantidade: 
+            Quantidade:
             <button onclick="diminuirQuantidade(${index})">–</button>
             ${item.quantidade}
             <button onclick="aumentarQuantidade(${index})">+</button><br>
@@ -102,12 +115,19 @@ function atualizarCarrinhoNaTela() {
         lista.appendChild(li);
     });
 
- 
-    
+    // Atualizar contador do botão do carrinho
+    const btnCarrinho = document.getElementById("btn-carrinho");
+    if (totalItens > 0) {
+        btnCarrinho.innerHTML = `🛒 Carrinho (${totalItens})`;
+        btnCarrinho.classList.add("has-items");
+    } else {
+        btnCarrinho.innerHTML = `🛒 Carrinho`;
+        btnCarrinho.classList.remove("has-items");
+    }
+
     const oldTotals = document.querySelectorAll('#total-carrinho');
     oldTotals.forEach(el => el.remove());
 
-    
     const totalEl = document.createElement("div");
     totalEl.id = "total-carrinho";
     totalEl.innerHTML = `<strong>Total: R$ ${total.toFixed(2)}</strong>`;
